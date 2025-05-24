@@ -7,7 +7,7 @@ if not "%~2"=="" goto 2ormore
 cd "%~dp1"
 cls
 set /a filecount=filecount+1
-echo %filecount%ŒÂ–Ú‚Ìƒtƒ@ƒCƒ‹‚ğˆ—‚·‚é‚æ
+echo %filecount%å€‹ç›®ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‡¦ç†ã™ã‚‹ã‚ˆ
 ffmpeg -hide_banner -i "%~1" -vn -c:a copy "%~dpn1 ffmpeg.wav"
 shift
 if not "%~1"=="" goto roop
@@ -19,7 +19,7 @@ exit
 cd "%~dp1"
 cls
 set /a filecount=filecount+1
-echo %filecount%ŒÂ–Ú‚Ìƒtƒ@ƒCƒ‹‚ğˆ—‚·‚é‚æ
+echo %filecount%å€‹ç›®ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‡¦ç†ã™ã‚‹ã‚ˆ
 If not exist ffmpeg  mkdir ffmpeg
 ffmpeg -hide_banner -i "%~1" -vn -c:a copy "ffmpeg\%~n1.wav"
 shift

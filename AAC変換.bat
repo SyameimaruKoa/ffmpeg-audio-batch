@@ -3,28 +3,28 @@ if "%comparison%"=="yes" goto roop
 
 if not "%file%"=="" goto folderrun
 chcp 932
-choice /c 480 /m "44.1kHz‚©48kHz‚ğ‹­§‚·‚éH"
+choice /c 480 /m "44.1kHzã‹48kHzã‚’å¼·åˆ¶ã™ã‚‹ï¼Ÿ"
 if %errorlevel%==1 set ar=--rate 44100 
 if %errorlevel%==2 set ar=--rate 48000 
 
-echo aac-hc‚ğg‚¤ê‡‚Í1
-echo aac-he‚ğg‚¤ê‡‚Í2
-echo alac  ‚ğg‚¤ê‡‚Í3
+echo aac-hcã‚’ä½¿ã†å ´åˆã¯1
+echo aac-heã‚’ä½¿ã†å ´åˆã¯2
+echo alac  ã‚’ä½¿ã†å ´åˆã¯3
 choice /c 123
 if %errorlevel%==1 set encoder=
 if %errorlevel%==2 set encoder= --he
 if %errorlevel%==3 set encoder= -A
 
-choice /m "‘¼‚ğw’è‚µ‚Ü‚·‚©H"
+choice /m "ä»–ã‚’æŒ‡å®šã—ã¾ã™ã‹ï¼Ÿ"
 set V=
 if %errorlevel%==2 goto run
-echo ˆø”‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢BÅŒã‚ÉƒXƒy[ƒX‚ğ“ü‚ê‚Ä‚­‚¾‚³‚¢
-echo TVBR	-V	•i¿w’è‚Ì”
-echo CVBR	-v	–Ú•W‚ÌƒrƒbƒgƒŒ[ƒg
-echo ABR	-a	–Ú•W‚ÌƒrƒbƒgƒŒ[ƒg
-echo CBR	-c	–Ú•W‚ÌƒrƒbƒgƒŒ[ƒg
+echo å¼•æ•°ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„ã€‚æœ€å¾Œã«ã‚¹ãƒšãƒ¼ã‚¹ã‚’å…¥ã‚Œã¦ãã ã•ã„
+echo TVBR	-V	å“è³ªæŒ‡å®šã®æ•°
+echo CVBR	-v	ç›®æ¨™ã®ãƒ“ãƒƒãƒˆãƒ¬ãƒ¼ãƒˆ
+echo ABR	-a	ç›®æ¨™ã®ãƒ“ãƒƒãƒˆãƒ¬ãƒ¼ãƒˆ
+echo CBR	-c	ç›®æ¨™ã®ãƒ“ãƒƒãƒˆãƒ¬ãƒ¼ãƒˆ
 echo.
-echo TVBR‚Ìg—p‰Â”\•i¿(”š‚ª‰º‚ª‚é‚Ù‚Çˆ³k‚·‚é)
+echo TVBRã®ä½¿ç”¨å¯èƒ½å“è³ª(æ•°å­—ãŒä¸‹ãŒã‚‹ã»ã©åœ§ç¸®ã™ã‚‹)
 echo 0 9 18 27 36 45 54 63 73 82 91 100 109 118 127
 set /P V=
 
@@ -35,7 +35,7 @@ if "%~x1"=="" goto folder
 cd /d "%~dp1"
 cls
 set /a filecount=filecount+1
-echo %filecount%ŒÂ–Ú‚Ìƒtƒ@ƒCƒ‹‚ğˆ—‚·‚é‚æ
+echo %filecount%å€‹ç›®ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‡¦ç†ã™ã‚‹ã‚ˆ
 If not exist qaac  mkdir qaac
 if "%~x1"==".wav" goto aac
 if "%~x1"==".m4a" goto aac
@@ -46,7 +46,7 @@ ffmpeg -hide_banner -i "%~1" -vn -c:a alac "qaac\%~n1 ffmpeg.m4a"
 qaac64%encoder% "qaac\%~n1 ffmpeg.m4a" %ar%%V%-o "qaac\%~n1 qaac.m4a"
 del "qaac\%~n1 ffmpeg.m4a"
 
-rem ”äŠrƒoƒbƒ`—p
+rem æ¯”è¼ƒãƒãƒƒãƒç”¨
 if "%comparison%"=="yes" exit /b
 
 shift
@@ -57,7 +57,7 @@ exit
 :aac
 qaac64%encoder% "%~1" %ar%%V%-o "qaac\%~n1.m4a"
 
-rem ”äŠrƒoƒbƒ`—p
+rem æ¯”è¼ƒãƒãƒƒãƒç”¨
 if "%comparison%"=="yes" exit /b
 
 if "%~nx1"=="bass.wav" del "%~nx1"
@@ -71,10 +71,10 @@ pause
 exit
 
 :folder
-choice /c aw /m "•ÏŠ·Œ³‚Ìƒtƒ@ƒCƒ‹‚ÍAm4a(a) or wav(w)H"
+choice /c aw /m "å¤‰æ›å…ƒã®ãƒ•ã‚¡ã‚¤ãƒ«ã¯ã€m4a(a) or wav(w)ï¼Ÿ"
 if %errorlevel%==1 set file=m4a
 if %errorlevel%==2 set file=wav
-choice /m "eƒtƒHƒ‹ƒ_‚ÉƒtƒHƒ‹ƒ_‚ğì‚è‚Ü‚·‚©H"
+choice /m "è¦ªãƒ•ã‚©ãƒ«ãƒ€ã«ãƒ•ã‚©ãƒ«ãƒ€ã‚’ä½œã‚Šã¾ã™ã‹ï¼Ÿ"
 if %errorlevel%==1 set foldermake=yes
 
 :folderrun
@@ -90,6 +90,6 @@ set path=qaac
 )
 for /r %%i in (*.%file%) do qaac64%encoder% "%%i" %V%-o "%path%\%%~ni.m4a"
 timeout /nobreak 10
-@REM ‚±‚ê‚ÍÌg‚Á‚Ä‚½ƒ‰ƒCƒ“‚É’Ê’m”ò‚Î‚·—p F @REM ‚±‚ê‚ÍÌg‚Á‚Ä‚½ƒ‰ƒCƒ“‚É’Ê’m”ò‚Î‚·—p F call C:\Users\kouki\OneDrive\CUIApplication\notify.bat m4a_end
+@REM ã“ã‚Œã¯æ˜”ä½¿ã£ã¦ãŸãƒ©ã‚¤ãƒ³ã«é€šçŸ¥é£›ã°ã™ç”¨ ï¼š @REM ã“ã‚Œã¯æ˜”ä½¿ã£ã¦ãŸãƒ©ã‚¤ãƒ³ã«é€šçŸ¥é£›ã°ã™ç”¨ ï¼š call C:\Users\kouki\OneDrive\CUIApplication\notify.bat m4a_end
 pause
 exit
