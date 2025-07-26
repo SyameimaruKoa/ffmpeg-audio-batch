@@ -3,14 +3,14 @@ if "%comparison%"=="yes" goto roop
 
 chcp 932
 if "%~x1"==".opus" goto decode
-echo ãƒ“ãƒƒãƒˆãƒ¬ãƒ¼ãƒˆã‚’æŒ‡å®šã—ã¦ãã ã•ã„ã€‚(æ•°å­—ã®ã¿kbpså˜ä½)
-echo 8kbps(æœ€ä½)ã€32kbps(ä½)ã€64kbps(æ¨™æº–)ã€96kbps(é«˜å“è³ªã€æ—¢å®š)ã€160kbps(æœ€é«˜å“è³ª)
-echo (å£°ã®ã¿ã®å ´åˆã¯ã‚±ãƒ„ã«ã€Œ--speechã€ã‚’ä»˜ã‘ã‚‹ã¨ã„ã„ã‹ã‚‚ï¼Ÿ)
+echo ƒrƒbƒgƒŒ[ƒg‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢B(”š‚Ì‚İkbps’PˆÊ)
+echo 8kbps(Å’á)A32kbps(’á)A64kbps(•W€)A96kbps(‚•i¿AŠù’è)A160kbps(Å‚•i¿)
+echo (º‚Ì‚İ‚Ìê‡‚ÍƒPƒc‚Éu--speechv‚ğ•t‚¯‚é‚Æ‚¢‚¢‚©‚àH)
 set bitrate=
-rem é¸æŠã‚¹ã‚­ãƒƒãƒ—ç”¨(skipã™ã‚‹æ™‚ã¯set /Pã‚’ã‚³ãƒ¡ãƒ³ãƒˆã‚¢ã‚¦ãƒˆ)
-rem ãƒœã‚¤ã‚¹ãƒ‰ãƒ©ãƒåœ§ç¸®ç”¨
+rem ‘I‘ğƒXƒLƒbƒv—p(skip‚·‚é‚Íset /P‚ğƒRƒƒ“ƒgƒAƒEƒg)
+rem ƒ{ƒCƒXƒhƒ‰ƒ}ˆ³k—p
 @REM set bitrate=64
-rem ãƒœã‚¤ãƒ‰ãƒ©ã‚ã‚“ã¾ã‚Šèã‹ãªã„ã‚„ã¤ç”¨
+rem ƒ{ƒCƒhƒ‰‚ ‚ñ‚Ü‚è•·‚©‚È‚¢‚â‚Â—p
 @REM set bitrate=32 --speech
 set /P bitrate=
 
@@ -30,10 +30,10 @@ if "%~x1"==".flac" goto opus
 ffmpeg -hide_banner -i "%~1" -vn "%~n1 ffmpeg.flac"
 opusenc "%~n1 ffmpeg.flac" --bitrate %bitrate% "%~n1.opus"
 if %errorlevel%==0 del %1
-rem å…ƒãƒ•ã‚¡ã‚¤ãƒ«ã‚’æ¶ˆã—ãŸããªã„å ´åˆã¯ä¸Šã®ifã‚’ã‚³ãƒ¡ãƒ³ãƒˆã‚¢ã‚¦ãƒˆ
+rem Œ³ƒtƒ@ƒCƒ‹‚ğÁ‚µ‚½‚­‚È‚¢ê‡‚Íã‚Ìif‚ğƒRƒƒ“ƒgƒAƒEƒg
 del "%~n1 ffmpeg.flac"
 
-rem æ¯”è¼ƒãƒãƒƒãƒç”¨
+rem ”äŠrƒoƒbƒ`—p
 if "%comparison%"=="yes" exit /b
 
 shift
@@ -44,8 +44,8 @@ exit
 :opus
 opusenc %1 --bitrate %bitrate% "%~n1.opus"
 @REM if %errorlevel%==0 del %1
-rem å…ƒãƒ•ã‚¡ã‚¤ãƒ«ã‚’æ¶ˆã—ãŸããªã„å ´åˆã¯ä¸Šã®ifã‚’ã‚³ãƒ¡ãƒ³ãƒˆã‚¢ã‚¦ãƒˆ
-rem æ¯”è¼ƒãƒãƒƒãƒç”¨
+rem Œ³ƒtƒ@ƒCƒ‹‚ğÁ‚µ‚½‚­‚È‚¢ê‡‚Íã‚Ìif‚ğƒRƒƒ“ƒgƒAƒEƒg
+rem ”äŠrƒoƒbƒ`—p
 if "%comparison%"=="yes" exit /b
 
 
@@ -58,7 +58,7 @@ exit
 cd /d "%~dp1"
 cls
 set /a filecount=filecount+1
-echo %filecount%å€‹ç›®ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‡¦ç†ã™ã‚‹ã‚ˆ
+echo %filecount%ŒÂ–Ú‚Ìƒtƒ@ƒCƒ‹‚ğˆ—‚·‚é‚æ
 if "%~x1"==".wav" goto 2ormoreopus
 if "%~x1"==".opus" goto 2ormoreopus
 if "%~x1"==".flac" goto 2ormoreopus
@@ -70,7 +70,7 @@ ffmpeg -hide_banner -i "%~1" -vn "opusenc\%~n1 ffmpeg.flac"
 opusenc "opusenc\%~n1 ffmpeg.flac" --bitrate %bitrate% "opusenc\%~n1.opus"
 del "opusenc\%~n1 ffmpeg.flac"
 
-rem æ¯”è¼ƒãƒãƒƒãƒç”¨
+rem ”äŠrƒoƒbƒ`—p
 if "%comparison%"=="yes" exit /b
 
 shift
@@ -79,14 +79,14 @@ pause
 exit
 
 :2ormoreopus
-rem ãƒ•ã‚©ãƒ«ãƒ€ã‚’ä½œæˆã—ãŸããªã„å ´åˆã¯ä¸‹ã‚’ã‚³ãƒ¡ãƒ³ãƒˆã‚¢ã‚¦ãƒˆ
+rem ƒtƒHƒ‹ƒ_‚ğì¬‚µ‚½‚­‚È‚¢ê‡‚Í‰º‚ğƒRƒƒ“ƒgƒAƒEƒg
 @REM If not exist opusenc  mkdir opusenc
-rem ãƒ•ã‚©ãƒ«ãƒ€å†…ã«ä½œã‚ŠãŸããªã„å ´åˆã¯ã‚³ãƒ¡ãƒ³ãƒˆã‚¢ã‚¦ãƒˆ(ä¸‹ã®ifãŒå‹•ã‹ãªããªã‚‹ã¨æ€–ã„ã®ã§ã‚³ãƒ¡ãƒ³ãƒˆã‚¢ã‚¦ãƒˆã—ãŸã®ã¯ä¸Šå´ã«)
+rem ƒtƒHƒ‹ƒ_“à‚Éì‚è‚½‚­‚È‚¢ê‡‚ÍƒRƒƒ“ƒgƒAƒEƒg(‰º‚Ìif‚ª“®‚©‚È‚­‚È‚é‚Æ•|‚¢‚Ì‚ÅƒRƒƒ“ƒgƒAƒEƒg‚µ‚½‚Ì‚Íã‘¤‚É)
 @REM opusenc %1 --bitrate %bitrate% "opusenc\%~n1.opus"
 opusenc %1 --bitrate %bitrate% "%~n1.opus"
 if %errorlevel%==0 del %1
-rem å…ƒãƒ•ã‚¡ã‚¤ãƒ«ã‚’æ¶ˆã—ãŸããªã„å ´åˆã¯ä¸Šã®ifã‚’ã‚³ãƒ¡ãƒ³ãƒˆã‚¢ã‚¦ãƒˆ
-rem æ¯”è¼ƒãƒãƒƒãƒç”¨
+rem Œ³ƒtƒ@ƒCƒ‹‚ğÁ‚µ‚½‚­‚È‚¢ê‡‚Íã‚Ìif‚ğƒRƒƒ“ƒgƒAƒEƒg
+rem ”äŠrƒoƒbƒ`—p
 if "%comparison%"=="yes" exit /b
 
 if "%~nx1"=="bass.wav" del "%~nx1"
@@ -104,7 +104,7 @@ cd /d %1
 If not exist opusenc  mkdir opusenc
 for /r %%i in (*.wav) do opusenc "%%i" --bitrate %bitrate% "opusenc\%%~ni.opus"
 timeout /nobreak 10
-@REM ã“ã‚Œã¯æ˜”ä½¿ã£ã¦ãŸãƒ©ã‚¤ãƒ³ã«é€šçŸ¥é£›ã°ã™ç”¨ ï¼š call C:\Users\kouki\OneDrive\CUIApplication\notify.bat opus_end
+@REM ‚±‚ê‚ÍÌg‚Á‚Ä‚½ƒ‰ƒCƒ“‚É’Ê’m”ò‚Î‚·—p F call C:\Users\kouki\OneDrive\CUIApplication\notify.bat opus_end
 pause
 exit
 
@@ -112,8 +112,8 @@ exit
 cd /d "%~dp1"
 cls
 set /a filecount=filecount+1
-echo "%~1"ã‚’ãƒ‡ã‚³ãƒ¼ãƒ‰ã—ã¾ã™
-echo %filecount%å€‹ç›®ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‡¦ç†ã™ã‚‹ã‚ˆ
+echo "%~1"‚ğƒfƒR[ƒh‚µ‚Ü‚·
+echo %filecount%ŒÂ–Ú‚Ìƒtƒ@ƒCƒ‹‚ğˆ—‚·‚é‚æ
 If not exist opusdec  mkdir opusdec
 opusdec %1 "opusdec\%~n1.wav"
 shift

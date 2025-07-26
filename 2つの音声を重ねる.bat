@@ -1,8 +1,8 @@
 @echo off
-echo 譛蛻昴�ｮ繝輔ぃ繧､繝ｫ繧帝浹讌ｽ縺ｨ縺励※謇句虚謖�螳壹＠縺ｦ縺上□縺輔＞(繝輔Ν繝代せ)
+echo 最初のファイルを音楽として手動指定してください(フルパス)
 set /p Music=
 :roop
-If not exist "C:\Users\kouki\Videos\繧ｨ繝ｳ繧ｳ繝ｼ繝画ｸ医∩" mkdir "C:\Users\kouki\Videos\繧ｨ繝ｳ繧ｳ繝ｼ繝画ｸ医∩"
+If not exist "C:\Users\kouki\Videos\エンコード済み" mkdir "C:\Users\kouki\Videos\エンコード済み"
 If not exist ffmpeg mkdir ffmpeg
 cd /d "%~dp1"
 ffmpeg -hide_banner -i %Music% -i %1 -filter_complex "[0:a][1:a]amix=inputs=2" -y "ffmpeg\%~n1.flac"

@@ -5,9 +5,9 @@ ffmpeg -hide_banner -i %1 -i %2 -i %3 -c copy ^
 -map 0:v:0 ^
 -map 2:a:0 ^
 -map 1:a:0 ^
--metadata:s:a:0 title="繧ｹ繝�繝ｬ繧ｪ" ^
--metadata:s:a:1 title="繝｢繝弱Λ繝ｫ" ^
-"C:\Users\kouki\Videos\繧ｨ繝ｳ繧ｳ繝ｼ繝画ｸ医∩\%~n1 Multitrack.mp4"
+-metadata:s:a:0 title="ステレオ" ^
+-metadata:s:a:1 title="モノラル" ^
+"C:\Users\kouki\Videos\エンコード済み\%~n1 Multitrack.mp4"
 shift
 shift
 shift

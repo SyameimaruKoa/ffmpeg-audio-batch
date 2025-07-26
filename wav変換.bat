@@ -1,23 +1,23 @@
 @echo off
 chcp 932
 
-rem é¸æŠã‚¹ã‚­ãƒƒãƒ—ç”¨(é€šå¸¸æ™‚ã¯goto skipã¾ã§ã‚’ã‚³ãƒ¡ãƒ³ãƒˆã‚¢ã‚¦ãƒˆ)
+rem ‘I‘ğƒXƒLƒbƒv—p(’Êí‚Ígoto skip‚Ü‚Å‚ğƒRƒƒ“ƒgƒAƒEƒg)
 @REM set bit=-acodec pcm_s24le
 @REM set ar= -ar 48000
 @REM goto skip
 
-echo "é‡å­åŒ–ãƒ“ãƒƒãƒˆæ•°ã‚’æŒ‡å®šã—ã¦ãã ã•ã„"
+echo "—Êq‰»ƒrƒbƒg”‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢"
 choice /c 123 /m "[16bit=1 , 24bit=2 , 32bit=3]"
 if %errorlevel%==1 set bit=-acodec pcm_s16le
 if %errorlevel%==2 set bit=-acodec pcm_s24le
 if %errorlevel%==1 set bit=-acodec pcm_s32le
 
-choice /c 480n /m "44.1ã‹48ã‹ãã®ã¾ã¾ã‹è‡ªç”±å…¥åŠ›ã‹"
+choice /c 480n /m "44.1‚©48‚©‚»‚Ì‚Ü‚Ü‚©©—R“ü—Í‚©"
 if %errorlevel%==1 set ar= -ar 44100
 if %errorlevel%==2 set ar= -ar 48000
-if %errorlevel%==4 set /P ar= -ar XXXXXã§å…¥åŠ›ã—ã¦ãã ã•ã„ï¼
+if %errorlevel%==4 set /P ar= -ar XXXXX‚Å“ü—Í‚µ‚Ä‚­‚¾‚³‚¢„
 
-choice /c ns0 /m "ãƒ¢ãƒãƒ©ãƒ«ã‹ã‚¹ãƒ†ãƒ¬ã‚ªã‹ãã®ã¾ã¾ã‹"
+choice /c ns0 /m "ƒ‚ƒmƒ‰ƒ‹‚©ƒXƒeƒŒƒI‚©‚»‚Ì‚Ü‚Ü‚©"
 if %errorlevel%==1 set ac= -ac 1
 if %errorlevel%==2 set ac= -ac 2
 
@@ -28,7 +28,7 @@ if not "%~2"=="" goto 2ormore
 cd /d "%~dp1"
 cls
 set /a filecount=filecount+1
-echo %filecount%å€‹ç›®ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‡¦ç†ã™ã‚‹ã‚ˆ
+echo %filecount%ŒÂ–Ú‚Ìƒtƒ@ƒCƒ‹‚ğˆ—‚·‚é‚æ
 ffmpeg -hide_banner -i "%~1" -vn %ac%%ar% %bit% -f wav "%~dpn1 ffmpeg.wav"
 shift
 if not "%~1"=="" goto roop
@@ -38,7 +38,7 @@ exit
 cd /d "%~dp1"
 cls
 set /a filecount=filecount+1
-echo %filecount%å€‹ç›®ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‡¦ç†ã™ã‚‹ã‚ˆ
+echo %filecount%ŒÂ–Ú‚Ìƒtƒ@ƒCƒ‹‚ğˆ—‚·‚é‚æ
 If not exist ffmpeg  mkdir ffmpeg
 ffmpeg -hide_banner -i "%~1" -vn %ac%%ar% %bit% -f wav "ffmpeg\%~n1.wav"
 shift

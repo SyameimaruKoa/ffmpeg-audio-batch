@@ -2,20 +2,20 @@
 if "%comparison%"=="yes" goto roop
 
 chcp 932
-echo éŸ³è³ªã‚’æŒ‡å®šã—ã¦ãã ã•ã„ã€‚
-echo V2ã¯ç´„192kbps
-echo V4ã¯ç´„160kbps
-echo V5ã¯ç´„128kbps ï¼œæ¨™æº–
-echo V6ã¯ç´„112kbps ï¼ˆéæ¨å¥¨ï¼‰
+echo ‰¹¿‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢B
+echo V2‚Í–ñ192kbps
+echo V4‚Í–ñ160kbps
+echo V5‚Í–ñ128kbps ƒ•W€
+echo V6‚Í–ñ112kbps i”ñ„§j
 choice /c 2456
 if %errorlevel%==1 set quality=2
 if %errorlevel%==2 set quality=4
 if %errorlevel%==3 set quality=5
 if %errorlevel%==4 set quality=6
 
-choice /m ä¸Šé™ãƒ“ãƒƒãƒˆãƒ¬ãƒ¼ãƒˆã‚’æŒ‡å®šã—ã¾ã™ã‹ï¼Ÿ
+choice /m ãŒÀƒrƒbƒgƒŒ[ƒg‚ğw’è‚µ‚Ü‚·‚©H
 if %errorlevel%==2 goto maxbitskip
-echo å…¥åŠ›æ–¹æ³•ã€Œ -B (â—‹â—‹â—‹)ã€
+echo “ü—Í•û–@u -B (›››)v
 set maxbit=
 set /P maxbit=
 :maxbitskip
@@ -28,7 +28,7 @@ if "%~x1"=="" goto folder
 cd /d "%~dp1"
 cls
 set /a filecount=filecount+1
-echo %filecount%å€‹ç›®ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‡¦ç†ã™ã‚‹ã‚ˆ
+echo %filecount%ŒÂ–Ú‚Ìƒtƒ@ƒCƒ‹‚ğˆ—‚·‚é‚æ
 If not exist lame  mkdir lame
 if "%~x1"==".wav" goto mp3
 if "%~x1"==".mp3" goto mp3
@@ -39,7 +39,7 @@ ffmpeg -hide_banner -i "%~1" -vn -ac 2 -acodec pcm_s16le -f wav "lame\%~n1 ffmpe
 lame "lame\%~n1 ffmpeg.wav" -V%quality%%maxbit% "lame\%~n1.mp3"
 del "lame\%~n1 ffmpeg.wav"
 
-rem æ¯”è¼ƒãƒãƒƒãƒç”¨
+rem ”äŠrƒoƒbƒ`—p
 if "%comparison%"=="yes" exit /b
 
 shift
@@ -50,7 +50,7 @@ exit
 :mp3
 lame %1 -V%quality%%maxbit% "lame\%~n1.mp3"
 
-rem æ¯”è¼ƒãƒãƒƒãƒç”¨
+rem ”äŠrƒoƒbƒ`—p
 if "%comparison%"=="yes" exit /b
 
 if "%~nx1"=="bass.wav" del "%~nx1"
@@ -68,6 +68,6 @@ cd /d %1
 If not exist lame  mkdir lame
 for /r %%i in (*.wav) do lame "%%i" -V%quality%%maxbit% "lame\%%~ni.mp3"
 timeout /nobreak 10
-@REM ã“ã‚Œã¯æ˜”ä½¿ã£ã¦ãŸãƒ©ã‚¤ãƒ³ã«é€šçŸ¥é£›ã°ã™ç”¨ ï¼š @REM ã“ã‚Œã¯æ˜”ä½¿ã£ã¦ãŸãƒ©ã‚¤ãƒ³ã«é€šçŸ¥é£›ã°ã™ç”¨ ï¼š call C:\Users\kouki\OneDrive\CUIApplication\notify.bat mp3_end
+@REM ‚±‚ê‚ÍÌg‚Á‚Ä‚½ƒ‰ƒCƒ“‚É’Ê’m”ò‚Î‚·—p F @REM ‚±‚ê‚ÍÌg‚Á‚Ä‚½ƒ‰ƒCƒ“‚É’Ê’m”ò‚Î‚·—p F call C:\Users\kouki\OneDrive\CUIApplication\notify.bat mp3_end
 pause
 exit

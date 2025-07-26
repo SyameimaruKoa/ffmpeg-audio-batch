@@ -5,7 +5,7 @@ if not "%~2"=="" goto 2ormore
 :roop
 cls
 set /a filecount=filecount+1
-echo %filecount%å€‹ç›®ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‡¦ç†ã™ã‚‹ã‚ˆ
+echo %filecount%ŒÂ–Ú‚Ìƒtƒ@ƒCƒ‹‚ğˆ—‚·‚é‚æ
 ffmpeg -hide_banner -i %1 -vn -c:a copy "%~dpn1 ffmpeg.m4a"
 exiftool -api largefilesupport=1 -tagsfromfile %1 -all:all -overwrite_original "%~dpn1 ffmpeg.m4a"
 shift
@@ -17,7 +17,7 @@ exit
 cd /d "%~dp1"
 cls
 set /a filecount=filecount+1
-echo %filecount%å€‹ç›®ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‡¦ç†ã™ã‚‹ã‚ˆ
+echo %filecount%ŒÂ–Ú‚Ìƒtƒ@ƒCƒ‹‚ğˆ—‚·‚é‚æ
 If not exist ffmpeg  mkdir ffmpeg
 ffmpeg -hide_banner -i %1 -vn -c:a copy "ffmpeg\%~n1.m4a"
 exiftool -api largefilesupport=1 -tagsfromfile %1 -all:all -overwrite_original "ffmpeg\%~n1.m4a"
